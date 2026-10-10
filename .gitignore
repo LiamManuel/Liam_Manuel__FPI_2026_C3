@@ -1,7 +1,13 @@
+
 *.o
 *.cbp
 *.layout
-obj/
+*.cpp
 *.depend
-*.h
+bin/
+obj/
 *.exe
+*.layout
+*.h
+
+
