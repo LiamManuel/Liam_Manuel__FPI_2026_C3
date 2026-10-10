@@ -7,4 +7,5 @@
 bin/
 obj/
 *.exe
+*.layout
 >>>>>>> 6e36b9ddd00e29985be6f2244fa7635bc1defdc5
