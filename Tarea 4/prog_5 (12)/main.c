@@ -1,25 +1,61 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-/*Cuenta-números.
-El programa, al recibir como datos un arreglo unidimensional de tipo
-entero y un número entero, determina cuantas veces se encuentra el
-número en el arreglo. */
+/* Ordenacion por seleccion directa. */
+
+const int MAX = 100;
+
+void Lectura(int *, int);
+void Ordena(int *, int);    /* Prototipos de funciones. */
+void Imprime(int *, int);
 
 void main(void)
 {
-    int I, NUM, CUE = 0;
-    int ARRE[100];
-    for( I=0; I<100; I++)
+    int TAM,VEC[MAX];
+    do
     {
-        printf("Ingrese el elemento %d del arreglo:", I+1);
-        scanf("%d", &ARRE[1]);        /* Lectura -asignacion- del arreglo */
+        printf("Ingrese el tamaño del arreglo: ");
+        scanf("%d", &TAM);
     }
-    printf("\n\nIngrese el numero que se va a buscar en el arreglo: ");
-    scanf("%d", &NUM);
-    for (I = 0; I<100; I++)
-        if(ARRE[I] == NUM)     /* Comparacion del numero con los elementos del arreglo */
+    while( TAM>MAX || TAM<1);    /* Se verifica que el tamaño del arreglo sea correcto. */
 
-        CUE++;
-    printf("\n\nEl %d se encuentra %d veces en el arreglo", NUM, CUE);
+    Lectura(VEC,TAM);
+    Ordena(VEC,TAM);
+    Imprime(VEC,TAM);
+}
+
+void Lectura(int A[], int T)
+/* La funcion lectura se utiliza para leer un arreglo unidimensional de T elementos de tipo entero. */
+{
+    int I;
+    for(I=0; I<T; I++)
+    {
+        printf("Ingrese el elemento %d: ", I+1);
+        scanf("%d", A[I]);
+    }
+}
+void Imprime(int A[], int T)
+/* Esta funcion se utiliza para escribir un arreglo unidimensional ordenado de T elementos de tipo entero. */
+{
+    int I;
+    for(I=0; I<T; I++)
+        printf("\nA[%d]: %d", I, A[I]);
+}
+
+void Ordena(int A[], int T)
+/* La funcion ordena utiliza el metodo de seleccion directa para ordenar los elementos de arreglo unidimensional A. */
+{
+    int I, J, MEN, L;
+    for(I=0; I < (T-1); I++)
+    {
+        MEN = A[I];
+        L = I;
+        for(I=(I+1); J<T; J++)
+            if(A[J] < MEN)
+        {
+            MEN = A[J];
+            L = J;
+        }
+        A[L] = A[I];
+        A[I] = MEN;
+    }
 }
