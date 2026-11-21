@@ -1,0 +1,13 @@
+
+*.o
+*.cbp
+*.layout
+*.cpp
+*.depend
+bin/
+obj/
+*.exe
+*.layout
+*.h
+
+
